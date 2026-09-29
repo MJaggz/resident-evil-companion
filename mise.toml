@@ -1,0 +1,22 @@
+[tools]
+python = "3.14.7"
+
+[tasks.fetch-raw]
+description = "Print the full fetched Fandom payload, including page metadata and wikitext."
+run = "python3 scripts/fetch_walkthrough.py --raw"
+
+[tasks.fetch-sections]
+description = "Print the parsed major walkthrough sections as JSON."
+run = "python3 scripts/fetch_walkthrough.py --sections"
+
+[tasks.fetch-write]
+description = "Generate Markdown files in knowledge/resident-evil-1996/."
+run = "python3 scripts/fetch_walkthrough.py --write"
+
+[tasks.fetch-check]
+description = "Check whether generated Markdown files match the current Fandom source."
+run = "python3 scripts/fetch_walkthrough.py --check"
+
+[tasks.fetch-lint]
+description = "Validate the fetch walkthrough script syntax without calling the Fandom API."
+run = "python3 -m py_compile scripts/fetch_walkthrough.py"
